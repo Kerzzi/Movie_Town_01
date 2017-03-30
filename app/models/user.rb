@@ -7,4 +7,7 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
+
+  #下面为仿照Rails101加入的关系
+  has_many :groups
 end
