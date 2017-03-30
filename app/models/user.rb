@@ -10,4 +10,5 @@ class User < ApplicationRecord
 
   #下面为仿照Rails101加入的关系
   has_many :groups
+  has_many :posts
 end
