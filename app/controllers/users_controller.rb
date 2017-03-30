@@ -13,10 +13,10 @@ class UsersController < ApplicationController
       log_in @user
       flash[:success] = "Welcome to the Movie Town!"
       redirect_to @user
-    else
+     else
       render 'new'
-    end
-  end
+     end
+   end
 
   private
 
