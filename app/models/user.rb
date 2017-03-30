@@ -11,4 +11,6 @@ class User < ApplicationRecord
   #下面为仿照Rails101加入的关系
   has_many :groups
   has_many :posts
+  has_many :group_relationships
+  has_many :participated_groups, :through => :group_relationships, :source => :group
 end
