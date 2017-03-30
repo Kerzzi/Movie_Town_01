@@ -42,6 +42,32 @@ class GroupsController < ApplicationController
     redirect_to groups_path, alert: "Movie deleted"
   end
 
+  def join
+    @group = Group.find(params[:id])
+
+    if !current_user.is_member_of?(@group)
+      current_user.join!(@group)
+      flash[:notice] = "收藏成功"
+    else
+      flash[:warning] = "您已收藏该电影！"
+    end
+
+    redirect_to group_path(@group)
+  end
+
+  def quit
+    @group = Group.find(params[:id])
+
+    if current_user.is_member_of?(@group)
+      current_user.quit!(@group)
+      flash[:alert] = "取消收藏"
+    else
+      flash[:warning] = "您没有收藏该电影！"
+    end
+
+    redirect_to group_path(@group)
+  end
+
   private
     def find_group_and_check_permission
       @group = Group.find(params[:id])
