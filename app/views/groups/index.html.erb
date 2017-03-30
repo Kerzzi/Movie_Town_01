@@ -1,14 +1,29 @@
 <div class="col-md-12">
+  <div class="center jumbotron">
+    <h1>Welcome to the Movie Town</h1>
+
+    <h2>
+      This is the home page for the
+      <a href="http://kerzzi.logdown.com/">Movie Town</a>.
+    </h2>
+
+    <% if current_user  %>
+
+    <% else %>
+      <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+    <% end %>
+  </div>
+
   <div class="group">
-    <%= link_to("New movie", new_group_path, class: "btn btn-primary pull-right") %>
+    <%= link_to("Add Movie", new_group_path, class: "btn btn-primary pull-right") %>
   </div>
   <table class="table table-hover">
     <thead>
       <tr>
         <td>#</td>
-        <td>Title</td>
-        <td>Description</td>
-        <td>Creator </td>
+        <td>电影名称</td>
+        <td>剧情简介</td>
+        <td>创建者 </td>
       </tr>
     </thead>
     <tbody>

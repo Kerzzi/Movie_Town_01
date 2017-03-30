@@ -1,6 +1,9 @@
 class PostsController < ApplicationController
 
   before_action :logged_in_user, :only => [:new, :create]
+  
+
+
 
   def new
     @group = Group.find(params[:group_id])
@@ -21,10 +24,14 @@ class PostsController < ApplicationController
   end
 
 
+
+
+
   private
 
-  def post_params
-    params.require(:post).permit(:content)
-  end
+
+    def post_params
+      params.require(:post).permit(:content)
+    end
 
 end
