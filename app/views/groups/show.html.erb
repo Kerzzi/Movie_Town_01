@@ -1,6 +1,14 @@
 <div class="col-md-12">
   <div class="group">
 
+    <span class="pull-right">
+      <% if current_user && current_user.is_member_of?(@group) %>
+        <label class="label label-success"> 已关注 </label>
+      <% else %>
+        <label class="label label-warning"> 未关注 </label>
+      <% end %>
+    </span>
+
     <%= link_to("Write a Review", new_group_post_path(@group), class: "btn btn-default pull-right")%>
 
     <% if current_user && current_user == @group.user %>
